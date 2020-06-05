@@ -1,0 +1,43 @@
+<%- layout('./layouts/main') %>
+<h2>New Course</h2>
+<form class="col s12" action="/courses/add" method="POST">
+  <div class="row">
+    <div class="input-field col s4">
+      <input id="title" name="title" type="text" class="validate" />
+      <label for="title">Title</label>
+      <span class="helper-text" data-error="wrong" data-success="right"></span>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s4">
+        <input id="price" name="price" type="number" class="validate" />
+        <label for="price">Price</label>
+        <span
+          class="helper-text"
+          data-error="wrong"
+          data-success="right"
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="description" name="description" type="text" class="validate" />
+      <label for="description">Description</label>
+      <span class="helper-text" data-error="wrong" data-success="right"></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="img" name="img" type="text" class="validate" />
+      <label for="img">Picture URL</label>
+      <span class="helper-text" data-error="wrong" data-success="right"></span>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" class="btn center">Add</button>
+  </div>
+</form>

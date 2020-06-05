@@ -1,0 +1,67 @@
+<%- layout('./layouts/main') %>
+<h2>Edit Course</h2>
+<form class="col s12" action="/<%= course.id %>/edit" method="POST">
+  <div class="row">
+    <div class="input-field col s4">
+      <input
+        id="title"
+        name="title"
+        value="<%= course.title %>"
+        type="text"
+        class="validate"
+      />
+      <label for="title">Title</label>
+      <span class="helper-text" data-error="wrong" data-success="right"></span>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s4">
+        <input
+          id="price"
+          name="price"
+          value="<%= course.price %>"
+          type="number"
+          class="validate"
+        />
+        <label for="price">Price</label>
+        <span
+          class="helper-text"
+          data-error="wrong"
+          data-success="right"
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input
+        id="description"
+        name="description"
+        type="text"
+        value="<%= course.description %>"
+        class="validate"
+      />
+      <label for="description">Description</label>
+      <span class="helper-text" data-error="wrong" data-success="right"></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input
+        id="img"
+        name="img"
+        type="text"
+        value="<%= course.img %>"
+        class="validate"
+      />
+      <label for="img">Picture URL</label>
+      <span class="helper-text" data-error="wrong" data-success="right"></span>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" class="btn center">Edit</button>
+  </div>
+</form>

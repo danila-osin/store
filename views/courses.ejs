@@ -1,0 +1,46 @@
+<%- layout('./layouts/main') %>
+<h1>Courses</h1>
+
+<% courses.forEach((c) => { %>
+<div class="row">
+  <div class="col s12 m4">
+    <div class="card">
+      <div class="card-image">
+        <% if(c.img){ %>
+        <img src="<%= c.img %>" />
+        <% } else { %>
+        <img
+          src="https://www.develiogludag.com/wp-content/uploads/2017/02/Develioğlu-Dağ-Law-Firm-Recovered-e1532346926814-1-3.png"
+        />
+        <% } %>
+        <span class="card-title"><%= c.title %></span>
+        <a
+          href="/<%= c.id %>/edit"
+          class="btn-floating halfway-fab waves-effect waves-light red"
+          ><i class="material-icons">edit</i></a
+        >
+      </div>
+      <div class="card-content">
+        <span><%= c.description %></span>
+        <p class="price"><%= c.price %></p>
+      </div>
+      <div class="row card-action center">
+        <form action="/card/add" method="POST">
+          <input type="hidden" name="id" value="<%= c.id %>" />
+          <button class="btn waves-effect waves-yellow btn-flat" type="submit">
+            Add to Cart
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+        <form action="/remove" method="POST">
+          <input type="hidden" name="id" value="<%= c.id %>" />
+          <button class="btn waves-effect waves-red btn-flat" type="submit">
+            Remove
+            <i class="material-icons right">delete</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<% }); %>
