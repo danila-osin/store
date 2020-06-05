@@ -8,6 +8,7 @@ const keys = require('./keys/keys.dev');
 const mainRoutes = require('./routes/mainRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const editRoutes = require('./routes/editRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(mainRoutes);
 app.use('/courses', courseRoutes);
 app.use(editRoutes);
+app.use('/auth', authRoutes);
 
 function start() {
   try {

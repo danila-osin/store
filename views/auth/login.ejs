@@ -1,0 +1,109 @@
+<%- layout('../layouts/main') %>
+<div class="auth">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a href="#login">Login</a></li>
+        <li class="tab col s6">
+          <a href="#register">Register</a>
+        </li>
+      </ul>
+    </div>
+    <div id="login" class="col s6 offset-s3">
+      <div class="z-depth-3">
+        <form action="/auth/login" method="POST" class="authform">
+          <h3 class="center">Enter the App</h3>
+          <div class="input-field">
+            <input id="email" name="email" type="email" class="validate" />
+            <label for="email">Email</label>
+            <span
+              class="helper-text"
+              data-error="Wrong"
+              data-success="Right"
+            ></span>
+          </div>
+
+          <div class="input-field">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              class="validate"
+            />
+            <label for="password">Password</label>
+            <span
+              class="helper-text"
+              data-error="Wrong"
+              data-success="Right"
+            ></span>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit">
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="register" class="col s6 offset-s3">
+      <div class="z-depth-3">
+        <form action="/auth/register" method="post" class="authform">
+          <h3 class="center">Create Account</h3>
+          <div class="input-field">
+            <input id="name" name="name" type="text" class="validate" />
+            <label for="name">Name</label>
+            <span
+              class="helper-text"
+              data-error="Wrong"
+              data-success="Right"
+            ></span>
+          </div>
+
+          <div class="input-field">
+            <input id="remail" name="email" type="email" class="validate" />
+            <label for="remail">Email</label>
+            <span
+              class="helper-text"
+              data-error="Wrong"
+              data-success="Right"
+            ></span>
+          </div>
+
+          <div class="input-field">
+            <input
+              id="rpassword"
+              name="password"
+              type="password"
+              class="validate"
+            />
+            <label for="rpassword">Password</label>
+            <span
+              class="helper-text"
+              data-error="Wrong"
+              data-success="Right"
+            ></span>
+          </div>
+
+          <div class="input-field">
+            <input
+              id="confirm"
+              name="confirm"
+              type="password"
+              class="validate"
+            />
+            <label for="confirm">Repeat Password</label>
+            <span
+              class="helper-text"
+              data-error="Wrong"
+              data-success="Right"
+            ></span>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

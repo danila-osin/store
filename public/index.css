@@ -1,0 +1,30 @@
+.nav-wrapper {
+  padding: 0 2rem !important;
+}
+
+.price {
+  font-size: 2rem;
+}
+
+.form-remove {
+  margin-top: 2rem;
+}
+
+.auth {
+  padding-top: 0.2rem;
+}
+
+.authform {
+  padding: 1rem;
+  padding-top: 0.05rem;
+  margin-top: 0.8rem;
+}
+
+.alert {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: rgba(255, 0, 0, 0.3);
+  color: red;
+}
