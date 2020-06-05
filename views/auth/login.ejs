@@ -13,6 +13,9 @@
       <div class="z-depth-3">
         <form action="/auth/login" method="POST" class="authform">
           <h3 class="center">Enter the App</h3>
+          <% if (logErr.length > 0) {%>
+          <p class="alert"><%= logErr %></p>
+          <% } %>
           <div class="input-field">
             <input id="email" name="email" type="email" class="validate" />
             <label for="email">Email</label>
@@ -49,6 +52,9 @@
       <div class="z-depth-3">
         <form action="/auth/register" method="post" class="authform">
           <h3 class="center">Create Account</h3>
+          <% if (regErr.length > 0) {%>
+          <p class="alert"><%= regErr %></p>
+          <% } %>
           <div class="input-field">
             <input id="name" name="name" type="text" class="validate" />
             <label for="name">Name</label>
