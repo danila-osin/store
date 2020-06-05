@@ -13,6 +13,8 @@ const courseRoutes = require('./routes/courseRoutes');
 const editRoutes = require('./routes/editRoutes');
 const authRoutes = require('./routes/authRoutes');
 
+const varMiddleware = require('./middleware/variables');
+
 const app = express();
 
 const store = new MongoStore({
@@ -35,6 +37,7 @@ app.use(
   })
 );
 
+app.use(varMiddleware);
 app.use(flash());
 
 app.use(mainRoutes);

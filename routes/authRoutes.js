@@ -13,6 +13,14 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/logout', (req, res) => {
+  try {
+    req.session.destroy(() => res.redirect('/auth#login'));
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
