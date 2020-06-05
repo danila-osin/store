@@ -14,16 +14,19 @@
         />
         <% } %>
         <span class="card-title"><%= c.title %></span>
+        <% if(isAuth) { %>
         <a
           href="/<%= c.id %>/edit"
           class="btn-floating halfway-fab waves-effect waves-light red"
           ><i class="material-icons">edit</i></a
         >
+        <% } %>
       </div>
       <div class="card-content">
         <span><%= c.description %></span>
         <p class="price"><%= c.price %></p>
       </div>
+      <% if(isAuth) { %>
       <div class="row card-action center">
         <form action="/card/add" method="POST">
           <input type="hidden" name="id" value="<%= c.id %>" />
@@ -40,6 +43,7 @@
           </button>
         </form>
       </div>
+      <% } %>
     </div>
   </div>
 </div>

@@ -3,16 +3,18 @@ const router = Router();
 
 const Course = require('../models/course');
 
+const auth = require('../middleware/auth');
+
 router.get('/', async (req, res) => {
   const courses = await Course.find();
   res.render('courses', { courses, title: 'All Courses' });
 });
 
-router.get('/add', (req, res) => {
+router.get('/add', auth, (req, res) => {
   res.render('add', { title: 'New Course' });
 });
 
-router.post('/add', async (req, res) => {
+router.post('/add', auth, async (req, res) => {
   try {
     await Course.create({
       title: req.body.title,

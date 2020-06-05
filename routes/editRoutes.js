@@ -3,7 +3,9 @@ const router = Router();
 
 const Course = require('../models/course');
 
-router.get('/:id/edit', async (req, res) => {
+const auth = require('../middleware/auth');
+
+router.get('/:id/edit', auth, async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
     res.render('edit', { title: 'Edit Course', course });
@@ -12,7 +14,7 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-router.post('/:id/edit', async (req, res) => {
+router.post('/:id/edit', auth, async (req, res) => {
   try {
     const id = req.params.id;
     await Course.findByIdAndUpdate(id, req.body);
@@ -23,7 +25,7 @@ router.post('/:id/edit', async (req, res) => {
   }
 });
 
-router.post('/remove', async (req, res) => {
+router.post('/remove', auth, async (req, res) => {
   try {
     await Course.deleteOne({ _id: req.body.id });
     res.redirect('/courses');
