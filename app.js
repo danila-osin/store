@@ -6,7 +6,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
 
-const keys = require('./keys/keys.dev');
+const keys = require('./keys/index');
 
 const mainRoutes = require('./routes/mainRoutes');
 const courseRoutes = require('./routes/courseRoutes');
