@@ -12,8 +12,10 @@ const mainRoutes = require('./routes/mainRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const editRoutes = require('./routes/editRoutes');
 const authRoutes = require('./routes/authRoutes');
+const cartRoutes = require('./routes/cartRoutes.js');
 
 const varMiddleware = require('./middleware/variables');
+const userMiddleware = require('./middleware/user');
 
 const app = express();
 
@@ -38,12 +40,14 @@ app.use(
 );
 
 app.use(varMiddleware);
+app.use(userMiddleware);
 app.use(flash());
 
 app.use(mainRoutes);
 app.use('/courses', courseRoutes);
 app.use(editRoutes);
 app.use('/auth', authRoutes);
+app.use('/cart', cartRoutes);
 
 function start() {
   try {

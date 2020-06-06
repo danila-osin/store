@@ -1,0 +1,46 @@
+<%- layout('./layouts/main') %>
+<h1>Your Card</h1>
+<div id="cart">
+  <% if (courses.length > 0) { %>
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Count</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% courses.forEach((c) => { %>
+
+      <tr>
+        <td><%= c.title %></td>
+        <td><%= c.price %>₽</td>
+        <td><%= c.count %></td>
+        <td>
+          <button
+            class="btn btn-small deep-orange darken-2 waves-effect waves-dark js-remove"
+            data-id="<%= c._id %>"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+
+      <% }) %>
+    </tbody>
+  </table>
+  <p><strong>Total Price: </strong><span class="price"><%= price %></span></p>
+  <form action="/orders" method="post">
+    <button
+      type="submit"
+      class="btn disabled yellow darken-2 waves-effect waves-blue"
+    >
+      Make Order
+    </button>
+  </form>
+  <% } else { %>
+  <p>Your cart is empty</p>
+  <% } %>
+</div>

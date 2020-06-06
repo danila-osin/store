@@ -4,10 +4,14 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         
         <% if(isAuth) { %>
+        <li><a href="/cart" class="yellow darken-2 waves-effect waves-light btn">
+          <i class="material-icons">shopping_cart</i>
+        </a></li>
         <li><a href="/courses/add">New Course</a></li>
         <% } %>  
 
         <li><a href="/courses">Courses</a></li>
+
       </ul>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if(isAuth) { %>
