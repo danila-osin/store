@@ -18,6 +18,13 @@ const toDate = (date) => {
 
 M.Tabs.init(document.querySelectorAll('.tabs'));
 
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(elems, options);
+});
+
+M.Sidenav.init(document.querySelectorAll('.sidenav'));
+
 document.querySelectorAll('.price').forEach((node) => {
   node.textContent = toCurrency(node.textContent);
 });
