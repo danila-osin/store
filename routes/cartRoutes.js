@@ -50,8 +50,6 @@ router.delete('/:id/remove', async (req, res) => {
 
   const user = await req.user.populate('cart.course').execPopulate();
   const courses = mapCourses(user.cart);
-  console.log(user);
-  console.log(courses);
   const cart = {
     courses,
     price: computeTotalPrice(courses),
