@@ -22,6 +22,7 @@
           <button
             class="btn btn-small deep-orange darken-2 waves-effect waves-dark js-remove"
             data-id="<%= c._id %>"
+            data-csurf="<%= csurf %>"
           >
             Delete
           </button>
@@ -36,6 +37,8 @@
     <button type="submit" class="btn yellow darken-2 waves-effect waves-blue">
       Make Order
     </button>
+
+    <input type="hidden" name="_csrf" value="<%= csurf %>" />
   </form>
   <% } else { %>
   <p>Your cart is empty</p>

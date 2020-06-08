@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session);
+const csurf = require('csurf');
 
 const keys = require('./keys/index');
 
@@ -38,6 +39,7 @@ app.use(
     store,
   })
 );
+app.use(csurf());
 
 app.use(varMiddleware);
 app.use(userMiddleware);

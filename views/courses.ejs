@@ -34,6 +34,7 @@
             Add to Cart
             <i class="material-icons right">send</i>
           </button>
+          <input type="hidden" name="_csrf" value="<%= csurf %>" />
         </form>
         <form action="/remove" method="POST">
           <input type="hidden" name="id" value="<%= c.id %>" />
@@ -41,6 +42,7 @@
             Remove
             <i class="material-icons right">delete</i>
           </button>
+          <input type="hidden" name="_csrf" value="<%= csurf %>" />
         </form>
       </div>
       <% } %>

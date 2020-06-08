@@ -38,9 +38,12 @@ if ($cart) {
   $cart.addEventListener('click', (event) => {
     if (event.target.classList.contains('js-remove')) {
       const id = event.target.dataset.id;
-
+      const csurf = event.target.dataset.csurf;
       fetch('/cart/' + id + '/remove', {
         method: 'delete',
+        headers: {
+          'X-CSRF-TOKEN': csurf,
+        },
       })
         .then((res) => res.json())
         .then((cart) => {
@@ -57,6 +60,7 @@ if ($cart) {
                     <button
                       class="btn btn-small deep-orange darken-2 waves-effect waves-dark js-remove"
                       data-id="${c._id}"
+                      data-csurf="${csurf}"
                     >
                       Delete
                     </button>
