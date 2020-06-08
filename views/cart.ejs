@@ -32,11 +32,8 @@
     </tbody>
   </table>
   <p><strong>Total Price: </strong><span class="price"><%= price %></span></p>
-  <form action="/orders" method="post">
-    <button
-      type="submit"
-      class="btn disabled yellow darken-2 waves-effect waves-blue"
-    >
+  <form action="/orders/add" method="post">
+    <button type="submit" class="btn yellow darken-2 waves-effect waves-blue">
       Make Order
     </button>
   </form>

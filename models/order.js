@@ -5,7 +5,6 @@ const order = new Schema({
     type: Date,
     default: Date.now,
   },
-  username: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -17,8 +16,8 @@ const order = new Schema({
         required: true,
       },
       course: {
-        type: Object,
-        required: true,
+        type: Schema.Types.ObjectId,
+        ref: 'Course',
       },
     },
   ],

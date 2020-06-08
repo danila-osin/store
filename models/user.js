@@ -26,6 +26,12 @@ const user = new Schema({
       },
     },
   ],
+  // orders: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Order',
+  //   },
+  // ],
 });
 
 user.methods.addToCart = async function (course) {
@@ -56,6 +62,11 @@ user.methods.removeFromCart = async function (id) {
   }
 
   this.cart = courses;
+  return await this.save();
+};
+
+user.methods.clearCart = async function () {
+  this.cart = [];
   return await this.save();
 };
 

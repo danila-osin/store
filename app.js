@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session);
-const flash = require('connect-flash');
 
 const keys = require('./keys/index');
 
@@ -13,6 +12,7 @@ const courseRoutes = require('./routes/courseRoutes');
 const editRoutes = require('./routes/editRoutes');
 const authRoutes = require('./routes/authRoutes');
 const cartRoutes = require('./routes/cartRoutes.js');
+const orderRoutes = require('./routes/orderRoutes');
 
 const varMiddleware = require('./middleware/variables');
 const userMiddleware = require('./middleware/user');
@@ -41,13 +41,13 @@ app.use(
 
 app.use(varMiddleware);
 app.use(userMiddleware);
-app.use(flash());
 
 app.use(mainRoutes);
 app.use('/courses', courseRoutes);
 app.use(editRoutes);
 app.use('/auth', authRoutes);
 app.use('/cart', cartRoutes);
+app.use('/orders', orderRoutes);
 
 function start() {
   try {

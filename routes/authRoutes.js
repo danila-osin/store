@@ -1,11 +1,12 @@
 const { Router } = require('express');
 const bcrypt = require('bcryptjs');
+const flash = require('connect-flash');
 
 const router = Router();
 
 const User = require('../models/user');
 
-router.get('/', (req, res) => {
+router.get('/', flash(), (req, res) => {
   res.render('auth/login', {
     title: 'Authentication',
     regErr: req.flash('regErr'),
@@ -21,7 +22,7 @@ router.get('/logout', (req, res) => {
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', flash(), async (req, res) => {
   try {
     const { email, password } = req.body;
     const candidate = await User.findOne({ email });
@@ -53,7 +54,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/register', async (req, res) => {
+router.post('/register', flash(), async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const candidate = await User.findOne({ email });
